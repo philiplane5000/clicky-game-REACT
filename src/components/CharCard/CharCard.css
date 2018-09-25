@@ -1,0 +1,17 @@
+.card {
+    width: 415px;
+    padding: 10px;
+    text-align: center;
+}
+
+.img {
+    margin: 0 auto;
+    width: 250px;
+    height: 312.5px;
+    background-size: cover;
+    background-clip: content-box;
+}
+
+.name {
+    text-align: center;
+}

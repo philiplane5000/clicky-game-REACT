@@ -1,0 +1,62 @@
+[
+    {
+        "id": 1,
+        "name": "Lord Varys",
+        "image": "../imgs/conleth-hill-325w.jpg"
+    },
+    {
+        "id": 2,
+        "name": "Bran Stark",
+        "image": "../imgs/isaac-hempstead-wright-325w.jpg"
+    },
+    {
+        "id": 3,
+        "name": "Joffrey Lannister",
+        "image": "../imgs/jack-gleeson-325w.jpg"
+    },
+    {
+        "id": 4,
+        "name": "Bronn",
+        "image": "../imgs/jerome-flynn-325w.jpg"
+    },
+    {
+        "id": 5,
+        "name": "Jon Snow",
+        "image": "../imgs/kit-harrington-325w.jpg"
+    },
+    {
+        "id": 6,
+        "name": "Cersei Lannister",
+        "image": "../imgs/lena-headey-325w.jpg"
+    },
+    {
+        "id": 7,
+        "name": "Arya Stark",
+        "image": "../imgs/maise-williams-325w.jpg"
+    },
+    {
+        "id": 8,
+        "name": "Catelyn Stark",
+        "image": "../imgs/michelle-fairley-325w.jpg"
+    },
+    {
+        "id": 9,
+        "name": "Jaime Lannister",
+        "image": "../imgs/nikolaj-coster-waldau-325w.jpg"
+    },
+    {
+        "id": 10,
+        "name": "Sandor 'The Hound' Clegane",
+        "image": "../imgs/rory-mccann-325w.jpg"
+    },
+    {
+        "id": 11,
+        "name": "Ned Stark",
+        "image": "../imgs/sean-bean-325w.jpg"
+    },
+    {
+        "id": 12,
+        "name": "Sansa Stark",
+        "image": "../imgs/sophie-turner-325w.jpg"
+    }
+]
