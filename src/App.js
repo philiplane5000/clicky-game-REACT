@@ -1,8 +1,10 @@
 import React, { Component } from 'react';
-// import Wrapper from "./components/Wrapper";
-import MaterialGrid from "./components/MaterialGrid";
+import GridMDC from "./components/GridMDC";
+import PaperMDC from "./components/PaperMDC";
 import CharCard from "./components/CharCard";
-import TopBar from "./components/TopBar";
+import Score from "./components/Score";
+import Alert from "./components/Alert";
+import NavBar from "./components/NavBar";
 import characters from "./characters.json";
 import './App.css';
 
@@ -10,36 +12,93 @@ class App extends Component {
 
   state = {
     characters: characters,
-    pickedChars: []
+    pickedChars: [],
+    correctGuessTally: 0,
+    topScore: 0,
+    alertMessage: "Click an image to begin!"
+  }
+
+  shuffleArray = (a) => {
+    var j, x, i;
+    for (i = a.length - 1; i > 0; i--) {
+      j = Math.floor(Math.random() * (i + 1));
+      x = a[i];
+      a[i] = a[j];
+      a[j] = x;
+    }
+    return a;
   }
 
   handlePicked = event => {
     event.preventDefault()
+
     const name = event.target.attributes.getNamedItem("name").value;
 
-    let pickedCharsCopy = this.state.pickedChars;
-    pickedCharsCopy.push(name)
+    const newState = { ...this.state };
 
-    this.setState(this.state.pickedChars = pickedCharsCopy)
-    console.log(this.state)
+    newState.characters = this.shuffleArray(newState.characters)
+    // newState.alertMessage = "Click an image to begin!";
+
+    if (newState.pickedChars.includes(name)) {
+      newState.alertMessage = `YOU ALREADY CHOSE "${name.toUpperCase()}"!`
+      newState.correctGuessTally = 0
+      newState.pickedChars = []
+      this.setState(this.state = newState)
+      console.log(this.state)
+    } else {
+      newState.pickedChars.push(name)
+      newState.alertMessage = "CORRECT"
+      newState.correctGuessTally++;
+      this.setState(this.state = newState)
+      console.log(this.state)
+    }
+
+    if (newState.correctGuessTally > newState.topScore) {
+      newState.topScore++
+    }
+
+    if (newState.correctGuessTally === 12) {
+      newState.alertMessage = "WINNER!";
+      newState.correctGuessTally = 0;
+      this.setState(this.state = newState)
+      console.log(this.state)
+    }
+
   }
-
-  // componentDidMount()
 
   render() {
     return (
       <div>
-      <TopBar/>
-      <MaterialGrid>
-        {this.state.characters.map(char => (
-          <CharCard
-            id={char.id}
-            name={char.name}
-            image={char.image}
-            handlePicked={this.handlePicked}
-          />
-        ))}
-      </MaterialGrid>
+        <NavBar style={{ background: "#14977D", marginBottom: "50px" }} />
+
+        <GridMDC container spacing={24} justify="space-around" style={{ margin: "0 auto", maxWidth: 1200 }}>
+
+          <PaperMDC>
+            <Score type="Score" score={this.state.correctGuessTally} />
+          </PaperMDC>
+
+          <PaperMDC>
+            <Alert message={this.state.alertMessage} />
+          </PaperMDC>
+
+          <PaperMDC>
+            <Score type="Top Score" score={this.state.topScore} />
+          </PaperMDC>
+
+        </GridMDC>
+
+        <GridMDC container spacing={24} justify="center" style={{ maxWidth: 1200, margin: "0 auto" }}>
+          {this.state.characters.map(char => (
+            <CharCard
+              id={char.id}
+              name={char.name}
+              image={char.image}
+              key={char.id}
+              handlePicked={this.handlePicked}
+            />
+          ))}
+        </GridMDC>
+
       </div>
     )
   }
