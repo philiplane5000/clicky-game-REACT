@@ -15,7 +15,7 @@ class App extends Component {
     pickedChars: [],
     correctGuessTally: 0,
     topScore: 0,
-    alertMessage: "Click an image to begin!"
+    alertMessage: ""
   }
 
   shuffleArray = (a) => {
@@ -37,31 +37,28 @@ class App extends Component {
     const newState = { ...this.state };
 
     newState.characters = this.shuffleArray(newState.characters)
-    // newState.alertMessage = "Click an image to begin!";
 
     if (newState.pickedChars.includes(name)) {
       newState.alertMessage = `YOU ALREADY CHOSE "${name.toUpperCase()}"!`
       newState.correctGuessTally = 0
       newState.pickedChars = []
       this.setState(this.state = newState)
-      console.log(this.state)
     } else {
       newState.pickedChars.push(name)
-      newState.alertMessage = "CORRECT"
+      newState.alertMessage = "CORRECT!"
       newState.correctGuessTally++;
       this.setState(this.state = newState)
-      console.log(this.state)
     }
 
     if (newState.correctGuessTally > newState.topScore) {
       newState.topScore++
     }
 
-    if (newState.correctGuessTally === 12) {
+    if (newState.correctGuessTally === 15) {
       newState.alertMessage = "WINNER!";
       newState.correctGuessTally = 0;
+      newState.pickedChars = [];
       this.setState(this.state = newState)
-      console.log(this.state)
     }
 
   }
@@ -69,16 +66,20 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar style={{ background: "#14977D", marginBottom: "50px" }} />
+        <NavBar style={{ background: "#14977D", marginBottom: "20px" }} />
 
-        <GridMDC container spacing={24} justify="space-around" style={{ margin: "0 auto", maxWidth: 1200 }}>
+        <GridMDC container spacing={24} justify="center" style={{ margin: "0 auto", maxWidth: 1200 }}>
 
           <PaperMDC>
             <Score type="Score" score={this.state.correctGuessTally} />
           </PaperMDC>
 
           <PaperMDC>
-            <Alert message={this.state.alertMessage} />
+            {this.state.alertMessage === "CORRECT!" ? (
+              <Alert message={this.state.alertMessage} style={{ color: "green" }} />
+            ) : (
+                <Alert message={this.state.alertMessage} style={{ color: "red" }} />
+              )}
           </PaperMDC>
 
           <PaperMDC>
@@ -87,7 +88,7 @@ class App extends Component {
 
         </GridMDC>
 
-        <GridMDC container spacing={24} justify="center" style={{ maxWidth: 1200, margin: "0 auto" }}>
+        <GridMDC container spacing={24} justify="center" style={{ maxWidth: 1000, margin: "0 auto" }}>
           {this.state.characters.map(char => (
             <CharCard
               id={char.id}

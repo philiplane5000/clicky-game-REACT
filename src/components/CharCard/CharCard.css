@@ -1,5 +1,5 @@
 .card {
-    width: 220px;
+    width: 160px;
     padding: 15px 10px;
     margin: 10px;
     text-align: center;
@@ -8,8 +8,8 @@
 
 .img {
     margin: 0 auto;
-    width: 200px;
-    height: 250px;
+    width: 150px;
+    height: 187.5px;
     background-size: cover;
     background-clip: content-box;
 }

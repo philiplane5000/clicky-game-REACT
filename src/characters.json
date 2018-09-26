@@ -58,5 +58,21 @@
         "id": 12,
         "name": "Sansa",
         "image": "../imgs/sophie-turner-325w.jpg"
+    },
+    {
+        "id": 13,
+        "name": "Sam",
+        "image": "../imgs/john-bradley-325w.jpg"
+    },
+    {
+        "id": 14,
+        "name": "Ygritte",
+        "image": "../imgs/rose-leslie-325w.jpg"
+    },
+    {
+        "id": 15,
+        "name": "Daenerys",
+        "image": "../imgs/emilia-clarke-325w.jpg"
     }
+
 ]
