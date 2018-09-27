@@ -18,6 +18,17 @@ class App extends Component {
     alertMessage: ""
   }
 
+  handlePicked = event => {
+    const newState = { ...this.state }
+    const name = event.target.attributes.getNamedItem("name").value;
+    this.shuffleCharacters()
+    this.checkGuess(name, this.updateTopScore)
+  }
+
+  shuffleCharacters = () => {
+    this.setState(this.state.characters = this.shuffleArray(this.state.characters))
+  }
+
   shuffleArray = (a) => {
     var j, x, i;
     for (i = a.length - 1; i > 0; i--) {
@@ -29,14 +40,9 @@ class App extends Component {
     return a;
   }
 
-  handlePicked = event => {
-    event.preventDefault()
-
-    const name = event.target.attributes.getNamedItem("name").value;
+  checkGuess = (name, cb) => {
 
     const newState = { ...this.state };
-
-    newState.characters = this.shuffleArray(newState.characters)
 
     if (newState.pickedChars.includes(name)) {
       newState.alertMessage = `YOU ALREADY CHOSE "${name.toUpperCase()}"!`
@@ -50,25 +56,37 @@ class App extends Component {
       this.setState(this.state = newState)
     }
 
+    cb(newState, this.alertWinner)
+
+  }
+
+  updateTopScore = (newState, cb) => {
+
     if (newState.correctGuessTally > newState.topScore) {
       newState.topScore++
+      this.setState(this.state = newState)
     }
 
+    cb(newState)
+  }
+
+  alertWinner = (newState) => {
     if (newState.correctGuessTally === 15) {
       newState.alertMessage = "WINNER!";
       newState.correctGuessTally = 0;
       newState.pickedChars = [];
       this.setState(this.state = newState)
     }
-
   }
+
+
 
   render() {
     return (
       <div>
         <NavBar style={{ background: "#14977D", marginBottom: "20px" }} />
 
-        <GridMDC container spacing={24} justify="center" style={{ margin: "0 auto", maxWidth: 1200 }}>
+        <GridMDC container spacing={24} justify="center" style={{ margin: "0 auto", maxWidth: 1000 }}>
 
           <PaperMDC>
             <Score type="Score" score={this.state.correctGuessTally} />
