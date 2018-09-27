@@ -77,7 +77,7 @@ class App extends Component {
   render() {
     return (
       <div>
-        <NavBar style={{ background: "#14977D", marginBottom: "5px" }} />
+        <NavBar style={{ background: "#1D8797", marginBottom: "5px" }} />
 
         <GridMDC container direction="column" style={{ margin: "0 auto", maxWidth: 945 }}>
 
@@ -120,8 +120,8 @@ class App extends Component {
             />
           ))}
         </GridMDC>
-        <BottomNavMDC style={{ background: "#14977D", marginTop:"17.5px", paddingTop:"15px", borderTop:"2.5px solid slategray"}}>
-          <a href="#" className="link" alt="clicky-game-github-link"><i className="fa fa-github fa-2x"></i></a>
+        <BottomNavMDC style={{ background: "#1D8797", marginTop:"17.5px", paddingTop:"20px", borderTop:"2.5px solid slategray"}}>
+          <a href="https://github.com/philiptd5000/clicky-game-REACT" target="_blank" className="link" alt="clicky-game-github-link"><i className="fa fa-github fa-2x"></i></a>
         </BottomNavMDC>
 
       </div>
