@@ -13,7 +13,7 @@
 
 * `Clicky-Game` is built using `React.js`. Thus, the application is component based, able to keeps track of change events using `state`, and updates render dynamically and without page refresh.
 
-* Preview `Tech-News-Scraper` LIVE on [Heroku](https://ancient-harbor-58732.herokuapp.com/) 
+<!-- * Preview `Tech-News-Scraper` LIVE on [Heroku](https://ancient-harbor-58732.herokuapp.com/)  -->
 
 
 
