@@ -14,7 +14,6 @@ class App extends Component {
   state = {
     characters: characters,
     pickedChars: [],
-    correctGuessTally: 0,
     topScore: 0,
     alertMessage: ""
   }
@@ -45,13 +44,11 @@ class App extends Component {
     const newState = { ...this.state };
     if (newState.pickedChars.includes(name)) {
       newState.alertMessage = `YOU ALREADY PICKED "${name.toUpperCase()}"!`
-      newState.correctGuessTally = 0
       newState.pickedChars = []
       this.setState(this.state = newState)
     } else {
       newState.pickedChars.push(name)
-      newState.alertMessage = "CORRECT!"
-      newState.correctGuessTally++;
+      newState.alertMessage = `GOOD CHOICE!`
       this.setState(this.state = newState)
     }
     cb(newState, this.alertWinner)
@@ -59,7 +56,7 @@ class App extends Component {
 
   updateTopScore = (newState, cb) => {
 
-    if (newState.correctGuessTally > newState.topScore) {
+    if (newState.pickedChars.length > newState.topScore) {
       newState.topScore++
       this.setState(this.state = newState)
     }
@@ -67,9 +64,8 @@ class App extends Component {
   }
 
   alertWinner = (newState) => {
-    if (newState.correctGuessTally === 12) {
-      newState.alertMessage = "WINNER!";
-      newState.correctGuessTally = 0;
+    if (newState.pickedChars.length === 12) {
+      newState.alertMessage = "CHAMPION!";
       newState.pickedChars = [];
       this.setState(this.state = newState)
     }
@@ -84,7 +80,7 @@ class App extends Component {
 
           <GridMDC item lg={12}>
             <PaperMDC>
-              {this.state.alertMessage === "CORRECT!" ? (
+              {this.state.alertMessage === "GOOD CHOICE!" ? (
                 <Alert message={this.state.alertMessage} style={{ color: "green" }} />
               ) : (
                   <Alert message={this.state.alertMessage} style={{ color: "red" }} />
@@ -96,7 +92,7 @@ class App extends Component {
 
             <GridMDC item lg={6} md={6} sm={12} xs={12}>
               <PaperMDC>
-                <Score type="Score" score={this.state.correctGuessTally} />
+                <Score type="Score" score={this.state.pickedChars.length} />
               </PaperMDC>
             </GridMDC>
 

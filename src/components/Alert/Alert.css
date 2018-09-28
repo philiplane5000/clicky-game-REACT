@@ -9,3 +9,15 @@
 .black {
     color: black;
 }
+
+@media (max-width: 960px) {
+    .default {
+        font-size: 1.4rem;
+    } 
+}
+
+@media (max-width: 620px) {
+    .default {
+        font-size: 1.2rem;
+    } 
+}
