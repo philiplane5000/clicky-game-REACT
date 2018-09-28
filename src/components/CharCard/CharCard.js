@@ -4,9 +4,9 @@ import "./CharCard.css";
 
 const CharCard = ({ id, name, image, handlePicked }) => (
     // <div className={`mdc-layout-grid__cell--span-3--order-${Number(id)}`}>
-    <div className={`mdc-layout-grid__cell--span-3 card`}>
+    <div>
         <div
-            className="img"
+            className="card"
             key={id}
             data-id={id}
             name={name}

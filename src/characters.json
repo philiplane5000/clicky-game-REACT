@@ -2,62 +2,62 @@
     {
         "id": 1,
         "name": "Varys",
-        "image": "../imgs/conleth-hill-325w.jpg"
+        "image": "../imgs/varys.jpg"
     },
     {
         "id": 2,
         "name": "Bran",
-        "image": "../imgs/isaac-hempstead-wright-325w.jpg"
+        "image": "../imgs/bran.png"
     },
     {
         "id": 3,
-        "name": "Joffrey",
-        "image": "../imgs/jack-gleeson-325w.jpg"
+        "name": "Littlefinger",
+        "image": "../imgs/littlefinger.gif"
     },
     {
         "id": 4,
         "name": "Jon Snow",
-        "image": "../imgs/kit-harrington-325w.jpg"
+        "image": "../imgs/jon.jpg"
     },
     {
         "id": 5,
         "name": "Cersei",
-        "image": "../imgs/lena-headey-325w.jpg"
+        "image": "../imgs/cersei.png"
     },
     {
         "id": 6,
-        "name": "Arya",
-        "image": "../imgs/maise-williams-325w.jpg"
+        "name": "Brienne",
+        "image": "../imgs/brienne.jpg"
     },
     {
         "id": 7,
         "name": "Jaime",
-        "image": "../imgs/nikolaj-coster-waldau-325w.jpg"
+        "image": "../imgs/jaime.jpg"
     },
     {
         "id": 8,
         "name": "Daenerys",
-        "image": "../imgs/emilia-clarke-325w.jpg"
+        "image": "../imgs/daenarys.jpg"
     },
     {
         "id": 9,
-        "name": "The Hound",
-        "image": "../imgs/rory-mccann-325w.jpg"
+        "name": "Lady Melisandre",
+        "image": "../imgs/melisandre.jpg"
     },
     {
         "id": 10,
-        "name": "Ned",
-        "image": "../imgs/sean-bean-325w.jpg"
+        "name": "Jorah",
+        "image": "../imgs/jorah.jpg"
     },
     {
         "id": 11,
         "name": "Sansa",
-        "image": "../imgs/sophie-turner-325w.jpg"
+        "image": "../imgs/sansa.jpg"
     },
     {
         "id": 12,
         "name": "Sam",
-        "image": "../imgs/john-bradley-325w.jpg"
+        "image": "../imgs/sam.jpg"
     }
 
 ]

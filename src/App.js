@@ -20,7 +20,7 @@ class App extends Component {
   }
 
   handlePicked = event => {
-    const newState = { ...this.state }
+
     const name = event.target.attributes.getNamedItem("name").value;
     this.shuffleCharacters()
     this.checkGuess(name, this.updateTopScore)
@@ -44,7 +44,7 @@ class App extends Component {
   checkGuess = (name, cb) => {
     const newState = { ...this.state };
     if (newState.pickedChars.includes(name)) {
-      newState.alertMessage = `YOU ALREADY CHOSE "${name.toUpperCase()}"!`
+      newState.alertMessage = `YOU ALREADY PICKED "${name.toUpperCase()}"!`
       newState.correctGuessTally = 0
       newState.pickedChars = []
       this.setState(this.state = newState)
@@ -58,6 +58,7 @@ class App extends Component {
   }
 
   updateTopScore = (newState, cb) => {
+
     if (newState.correctGuessTally > newState.topScore) {
       newState.topScore++
       this.setState(this.state = newState)
@@ -111,6 +112,7 @@ class App extends Component {
 
         <GridMDC container spacing={24} justify="center" style={{ maxWidth: 945, margin: "0 auto" }}>
           {this.state.characters.map(char => (
+            <GridMDC item lg={3} md={3} sm={4} xs={6}>
             <CharCard
               id={char.id}
               name={char.name}
@@ -118,9 +120,10 @@ class App extends Component {
               key={char.id}
               handlePicked={this.handlePicked}
             />
+            </GridMDC>
           ))}
         </GridMDC>
-        <BottomNavMDC style={{ background: "#1D8797", marginTop:"17.5px", paddingTop:"20px", borderTop:"2.5px solid slategray"}}>
+        <BottomNavMDC style={{ background: "#1D8797", marginTop: "17.5px", paddingTop: "20px", borderTop: "2.5px solid slategray" }}>
           <a href="https://github.com/philiptd5000/clicky-game-REACT" target="_blank" className="link" alt="clicky-game-github-link"><i className="fa fa-github fa-2x"></i></a>
         </BottomNavMDC>
 

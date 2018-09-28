@@ -1,15 +1,14 @@
 .card {
-    width: 160px;
-    padding: 15px 10px;
-    margin: 10px;
-    text-align: center;
-    box-shadow: 0 3px 6px rgba(0,0,0,0.16), 0 3px 6px rgba(0,0,0,0.23);
-}
-
-.img {
     margin: 0 auto;
-    width: 150px;
-    height: 187.5px;
+    width: 200px;
+    height: 200px;
     background-size: cover;
     background-clip: content-box;
+    border-radius: 5px;
+    box-shadow: 0 1px 3px rgba(0,0,0,0.12), 0 1px 2px rgba(0,0,0,0.24);
+    transition: all 0.3s cubic-bezier(.25,.8,.25,1);
+}
+
+.card:hover {
+    box-shadow: 0 14px 28px rgba(0,0,0,0.25), 0 10px 10px rgba(0,0,0,0.22);
 }
