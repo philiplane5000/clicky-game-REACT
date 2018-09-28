@@ -55,7 +55,6 @@ class App extends Component {
   }
 
   updateTopScore = (newState, cb) => {
-
     if (newState.pickedChars.length > newState.topScore) {
       newState.topScore++
       this.setState(this.state = newState)
